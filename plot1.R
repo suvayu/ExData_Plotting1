@@ -30,7 +30,7 @@ plot.save <- function() {
 
 
 plot1 <- function(dst = NULL) {
-  if (dst == NULL) dst <- dst.read()
+  if (!is.data.frame(dst)) dst <- dst.read()
   hist(dst$Global_active_power, breaks = 12, col = "red",
        main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
 }
