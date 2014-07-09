@@ -14,8 +14,8 @@ dst.read <- function(datafile = "household_power_consumption.txt") {
 
   ## read full dataset
   dst <- read.csv(datafile, sep = ";", colClasses = types, nrow = 2075260, na.strings = "?")
-  dst$Date <- as.Date(dst$Date, format = "%d/%m/%Y")
   dst$Time <- as.POSIXct(paste(dst$Date, dst$Time, sep = " "), format = "%d/%m/%Y %H:%M:%S")
+  dst$Date <- as.Date(dst$Date, format = "%d/%m/%Y")
 
   ## subset data to 2007-02-01 - 2007-02-02
   dst <- dst[dst$Date >= as.Date("2007-02-01") & dst$Date <= as.Date("2007-02-02"),]
