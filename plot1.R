@@ -25,12 +25,14 @@ dst.read <- function(datafile = "household_power_consumption.txt") {
 }
 
 
-plot.save <- function() {
-}
-
-
-plot1 <- function(dst = NULL) {
+plot1 <- function(dst = NULL, filename = "plot1.png") {
+  ## read default dataset if none is passed
   if (!is.data.frame(dst)) dst <- dst.read()
+
+  ## set png output device
+  png(file = filename, width = 480, height = 480)
+  message("Printing to ", filename)
   hist(dst$Global_active_power, breaks = 12, col = "red",
        main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
+  dev.off()
 }
