@@ -35,6 +35,6 @@ plot2 <- function(dst = NULL, filename = "plot2.png") {
   ## set png output device
   png(file = filename, width = 480, height = 480)
   message("Printing to ", filename)
-  plot(dst$Time, dst.ts, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "Day")
+  plot(dst$Time, dst.ts, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
   dev.off()
 }
