@@ -44,7 +44,7 @@ plot4 <- function(dst = NULL, filename = "plot4.png") {
 
   ## plot 1, 2
   dst.ts.volt <- ts(dst$Voltage, frequency = 1440, start = 0)
-  plot(dst$Time, dst.ts.volt, type = "l", ylab = "Voltage", xlab = "")
+  plot(dst$Time, dst.ts.volt, type = "l", ylab = "Voltage", xlab = "datetime")
 
   ## plot 2, 1
   dst.ts.sub1 <- ts(dst$Sub_metering_1, frequency = 1440, start = 0)
@@ -55,10 +55,11 @@ plot4 <- function(dst = NULL, filename = "plot4.png") {
   plot(dst$Time, dst.ts.sub2, ylim = c(0,38), type = "l", col = "red", axes = FALSE, ylab = "", xlab = "")
   par(new = TRUE)
   plot(dst$Time, dst.ts.sub3, ylim = c(0,38), type = "l", col = "blue", axes = FALSE, ylab = "", xlab = "")
-  legend("topright", lty = c(1,1,1), col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  legend("topright", lty = c(1,1,1), col = c("black", "red", "blue"),
+         legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty = "n")
 
   ## plot 2, 2
   dst.ts.rpow <- ts(dst$Global_reactive_power, frequency = 1440, start = 0)
-  plot(dst$Time, dst.ts.rpow, type = "l", ylab = "Global Reactive Power", xlab = "")
+  plot(dst$Time, dst.ts.rpow, type = "l", ylab = "Global_reactive_power", xlab = "datetime")
   dev.off()
 }
